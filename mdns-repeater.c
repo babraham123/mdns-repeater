@@ -44,7 +44,7 @@ const char package_name[] = PACKAGE;
 #define MDNS_ADDR "224.0.0.251"
 #define MDNS_PORT 5353
 
-#define PIDFILE "/var/run/" PACKAGE ".pid"
+#define PIDFILE "/run/" PACKAGE ".pid"
 
 #define MAX_SOCKS 16
 #define MAX_SUBNETS 16
