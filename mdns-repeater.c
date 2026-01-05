@@ -503,6 +503,7 @@ static ssize_t send_packet(int fd, const void *data, size_t len) {
 }
 
 static void mdns_repeater_shutdown(int sig) {
+	(void)sig;
 	shutdown_flag = 1;
 }
 
