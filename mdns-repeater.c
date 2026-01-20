@@ -418,7 +418,8 @@ static int create_send_sock(int recv_sockfd, const char *ifname, struct if_sock 
 
 	struct ifreq ifr;
 	memset(&ifr, 0, sizeof(ifr));
-	strncpy(ifr.ifr_name, ifname, IFNAMSIZ);
+	strncpy(ifr.ifr_name, ifname, IFNAMSIZ - 1);
+	ifr.ifr_name[IFNAMSIZ - 1] = '\0';
 	struct in_addr *if_addr = &((struct sockaddr_in *) &ifr.ifr_addr)->sin_addr;
 
 #ifdef SO_BINDTODEVICE
