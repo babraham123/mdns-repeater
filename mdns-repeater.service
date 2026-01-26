@@ -2,6 +2,8 @@
 Description=mdns-repeater
 After=network.target syslog.service
 ConditionPathExists=/etc/default/mdns-repeater
+StartLimitBurst=5
+StartLimitIntervalSec=30s
 
 [Service]
 Type=forking
@@ -10,6 +12,8 @@ ExecStart=/usr/local/bin/mdns-repeater $MDNS_REPEATER_OPTS
 PIDFile=/run/mdns-repeater.pid
 KillMode=process
 Restart=always
+RestartSec=5s
+TimeoutStartSec=120s
 
 [Install]
 WantedBy=multi-user.target
